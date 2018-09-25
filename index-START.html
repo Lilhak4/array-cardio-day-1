@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Array Cardio 💪</title>
 </head>
+
 <body>
   <p><em>Psst: have a look at the JavaScript Console</em> 💁</p>
   <script>
@@ -31,12 +33,32 @@
 
     // Array.prototype.filter()
     // 1. Filter the list of inventors for those who were born in the 1500's
-
+    const result = inventors.filter(inventor => {
+      if (inventor.year >= 1500 && inventor.year < 1600) {
+        return true;
+      }
+    });
+    console.table(result);
     // Array.prototype.map()
     // 2. Give us an array of the inventors' first and last names
+    const firstLast = inventors.map(inventor => inventor.first + ' ' + inventor.last);
+    // Or - const firstLast = inventors.map(inventor => `${inventor.first} ${inventor.last}`);
+    console.log(firstLast);
 
     // Array.prototype.sort()
     // 3. Sort the inventors by birthdate, oldest to youngest
+    const order = inventors.sort(function (firstPerson, secondPerson) {
+      if (firstPerson.year > secondPerson.year) {
+        return 1;
+      } else {
+        return -1;
+      }
+    });
+
+    console.table(order);
+
+    // SHORTHAND 
+    // const order = inventors.sort((a,b) => a.year > b.year ? 1 : -1);
 
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live?
@@ -52,8 +74,9 @@
 
     // 8. Reduce Exercise
     // Sum up the instances of each of these
-    const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+    const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck'];
 
   </script>
 </body>
+
 </html>
